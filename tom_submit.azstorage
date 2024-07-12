@@ -1,0 +1,108 @@
+#!/bin/ksh 
+
+. $TOM_ADMIN/vtom_init.ksh
+
+# RC GEN Redirect
+if  [ "${TOM_RESOURCE_EVAL:-0}" = "1" ] ; then
+	echo "_______________________________________________________________________"
+	date +"%A %d/%m/%Y - %H:%M:%S"
+	echo " Beginning of the resource evaluation $TOM_RESOURCE ..."
+	echo " From : $TOM_RESOURCE_EVAL_REQUESTER"
+	echo "_______________________________________________________________________"
+	echo " "
+	
+    if [ $2 = "List" ]; then
+        if [ $# -eq 3 ]; then
+            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --filename $3
+            stat_fin_job=$?
+        elif [ $# -eq 4 ]; then
+            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --remote_path $3 --filename $4
+            stat_fin_job=$?
+        else
+            echo "Invalid number of parameters"
+            stat_fin_job=90
+        fi
+
+    else
+        echo "Parameter 2 must be 'List' for resource evaluation"
+        stat_fin_job=90
+    fi
+	
+	echo "_______________________________________________________________________"
+	date +"%A %d/%m/%Y - %H:%M:%S"
+	echo "End of the resource evaluation."
+	echo " "
+	
+	# Gestion du code retour
+	if [ "${stat_fin_job}" = "0" ] ; then
+		echo "--> Exit [${stat_fin_job}] so valid resource"
+		${ABM_BIN}/vtgestlog
+	else
+		echo "--> Exit [${stat_fin_job}] so invalid resource"
+		${ABM_BIN}/vtgestlog
+	fi
+	
+	exit ${stat_fin_job}
+
+fi
+
+# ----------------------------------------------------- #
+# 		    TOM SUBMITTER - Azure Storage        		#
+# ----------------------------------------------------- #
+
+if  [ -n ${TOM_JOB_ID:-0} ] ; then
+	# Informations display
+	. $TOM_ADMIN/tom_submit.aff
+	echo "_______________________________________________________________________"
+	date +"%A %d/%m/%Y - %H:%M:%S"
+	echo "Begin of the script..."
+	echo "_______________________________________________________________________"
+	echo " "
+
+	# TEST mode
+	if [ "${TOM_JOB_EXEC}" = "TEST" ] ; then
+		echo "Job in TEST mode"
+		${ABM_BIN}/tsend -sT -r0 -m"Job finished (TEST mode)"
+		${ABM_BIN}/vtgestlog
+		exit 0
+	fi
+
+    #if param 4 is empty then parameter remote_path is not set
+    if [ $# -eq 7 ]; then
+        if [ "'$4'" = "''" ]; then
+            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --local_path $3 --filename $5 --overwrite $6 --error_no_file $7
+            stat_fin_job=$?
+        else
+            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --local_path $3  --remote_path $4 --filename $5 --overwrite $6 --error_no_file $7
+            stat_fin_job=$?
+        fi
+    else
+        echo "Invalid number of parameters"
+        stat_fin_job=90
+    fi
+
+	echo "_______________________________________________________________________"
+	date +"%A %d/%m/%Y - %H:%M:%S"
+	echo "End of the script."
+	echo " "
+
+	# Management of the return code 
+	if [ "${stat_fin_job}" = "0" ] ; then
+		echo "--> Exit [${stat_fin_job}] then acknowledgment"
+		${ABM_BIN}/tsend -sT -r${stat_fin_job} -m"Job finished (${stat_fin_job})"
+        /var/lib/absyss/visual-tom/abm/submitters/post_exec.ksh "${stat_fin_job}" "Finished"
+		${ABM_BIN}/vtgestlog
+	else
+		echo "--> Exit [${stat_fin_job}] then no acknowledgment"
+		${ABM_BIN}/tsend -sE -r${stat_fin_job} -m"Job in error (${stat_fin_job})"
+		${ABM_BIN}/vtgestlog
+        /var/lib/absyss/visual-tom/abm/submitters/post_exec.ksh "${stat_fin_job}" "Error"
+	fi
+
+	# logs file  management
+    	[ "${TOM_LOG_ACTION}" != "   " ] && ${TOM_ADMIN}/gestlog
+else 
+	echo " "
+	echo "--> Job not submitted by a Visual TOM engine"
+	echo " "
+fi

@@ -1,0 +1,7 @@
+#Variables for Azure Credentials
+AZURE_CLIENT_ID=""
+AZURE_TENANT_ID=""
+AZURE_CLIENT_SECRET=""
+
+#Variables for Azure Blob Storage
+AZURE_STORAGE_NAME=""
