@@ -90,11 +90,12 @@ if args.transfer_type == 'Upload':
             file_found = False
 
             remote_filename = os.path.join(args.remote_path,os.path.basename(local_filename))
+            remote_filename = remote_filename.lstrip('/')   # Remove leading '/' from remote_filename to match Azure Blob Storage path format
             filename = os.path.basename(local_filename)
-
+            
             if args.overwrite == 'Yes':
                 with open(local_filename, "rb") as local_file_content:
-                    container_client.upload_blob(name=filename, data=local_file_content, overwrite=True)
+                    container_client.upload_blob(name=remote_filename, data=local_file_content, overwrite=True)
                     printFormat("SUCCESS", f"'{local_filename}' has been successfully moved to Azure Blob Storage container '{args.container_name}'.")
             else:
                 # Check if the file already exists in the container
@@ -105,7 +106,7 @@ if args.transfer_type == 'Upload':
 
                 if not file_found:
                     with open(local_filename, "rb") as local_file_content:
-                        container_client.upload_blob(name=filename, data=local_file_content, overwrite=False)
+                        container_client.upload_blob(name=remote_filename, data=local_file_content, overwrite=False)
                         printFormat("SUCCESS", f"'{remote_filename}' has been successfully moved to Azure Blob Storage container '{args.container_name}'.")
                 else:
                     printFormat("ERROR", f"'{remote_filename}' already exists in the Azure Blob Storage container. Skipping file...")
