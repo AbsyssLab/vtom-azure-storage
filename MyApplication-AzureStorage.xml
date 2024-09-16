@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Domain name="server-demo" stamp="VTEXPORT : 7.2.1a1 EN LINUX_X64 2024/07/24 Visual Tom (c) Absyss" version="7.2.1a1" generationDate="Mon Sep 16 11:48:38 2024">
+  <Icons>
+    <Icon name="AZURE_Demo" width="48" height="37" fileSize="1062" fileContent="eJwBJgTZ+4lQTkcNChoKAAAADUlIRFIAAAAwAAAAJQgGAAAABBlqrwAAA+1JREFUeNrVWEuMDEEYHiQcWKzp6Z5d7wsSIRFO&#10;EvFMPOKGg8guZqqqx3pcHJZI2ISDx0EkIhGPICKIC0GyzNZfExKExMkrIoj1DgkJFhvjr96dmZ3eNl3V0zt2O/lTSXdV1/dX&#10;/f9X31+RSAUeg8AcaZG++MQIXxJj8KYm2TK274GnYiOCz1oMdjkvNl4dZNU1D+4T4A3CD8VsyJq2+JQDbRJebzF+vHcjX3F+&#10;gMGAS/By9eMMmnKfTCYOm/i+mqSn9krsIwiMQvAvJHBpBhMvJ684PzAfUgyedzp2qfeFDOWzEdyvHHhpJoPNue8WhaW5XXFC&#10;i4l1vQn89jy4gn00Ejer8n0YP9W1j8yNYetuVP9/pmFw1gN8NkZhZ66PBBpj4kvRdxwTJeLA/wbPPcHb8CeegnEFRhIru/Xp&#10;dGIkTU+oOPCq+nQUY/iBF3hDhgcVJ4vPA7jg6agTSnC6squezEzDib96rmjOCRtm5Fc/ca0Wnf1Zom82mmqZVxHwFsmMR2Zp&#10;KwXeTZExAuv/tfr5XaBwqzJsY4tzfmCQLhe4wuee3xj53aKC9ij4GsoX+gJhIFxaaLHCmJy97VGdhILsrh8Ik/JlxSzFj6s6&#10;IHMBz4q9PQI+SnmDHxAEcL9IVqy6OhTff1Zc/cIJTVtmhgq+ml0fhon7wW/yeBJWdx1nJkWdRvgUDjcq7oQbOhR2G/6rf7u7&#10;vADQAl+U0DwRCvjhWEWV4vC8EUi6x6LWaYmlAjjQYU8jTU39wxBpp3xjn4lnkUi2X7exKOQcaW0H24Uog21lgY93yGPfybpK&#10;Zvczsj49Af/xNYgTKDHaatdmRpcj1O4rUF+RZPYOw8w0I+U4qr0LJoETQSurHQq0KU/dnUq7SWC5ETQfiJilr3ds+K3w8x9S&#10;qKlfr8CWIE6gTrqh5YCUt0o/ZnBQn5LFMV0nHAonYq0a6yTEXNWEQ5aYFCg8mciYtl4uYPtujEr5iTF9U4l5KD9TzsmOc7Qa&#10;+k6c8E00RdrMWjafX5ayXSNmaeeDxIaMVoo2Hyv+TIQiz5OwSOeklmE3goor/7jDhEbVLZX3O6EJxSRs0JIbiLHGJdkjtQk+&#10;UTVxsSa4HLZURxW7TycfEMMjV+iIAx2xLV5i2+pt4j227e5yMcTrmcua+dBY4H2StuSFrKP+ZFvKwqkvxiCARVitbULJfRTF&#10;4EVcoCd6B5z4pnOIBqsjUs0mMs0cg3CGk+7HPLuGE78OKK89Djc4Uv7WN8AQi2WmxCQFU7HVuf9EEeiuIcwQQHsldJzwJXqr&#10;Wtc8GFd0OpZ9dbj1e+QdENpDtO+uCdrRiU/YvnKu1LFmCNmedBLPhb/QLGFEDOPupwAAAABJRU5ErkJgghOI7Nw="/>
+  </Icons>
+  <JobApplicationServers>
+    <JobApplicationServer id="JASac150008757dc34d6643675500000002" name="AzureStorage" comment="Custom connector for Azure Storage" type="GENERIC">
+      <Properties>
+        <Property key="VTCUSTOM_DEFAULT_QUEUE" value="queue_azstorage"/>
+        <Property key="VTCUSTOM_DEFAULT_SCRIPT" value=""/>
+        <Property key="VTCUSTOM_FIELDS.0.COMMENT" value="Name of the container"/>
+        <Property key="VTCUSTOM_FIELDS.0.DEFAULT_VALUE" value=""/>
+        <Property key="VTCUSTOM_FIELDS.0.NAME" value="Container name"/>
+        <Property key="VTCUSTOM_FIELDS.0.TYPE" value="character"/>
+        <Property key="VTCUSTOM_FIELDS.0.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.1.COMMENT" value=""/>
+        <Property key="VTCUSTOM_FIELDS.1.DEFAULT_VALUE" value=""/>
+        <Property key="VTCUSTOM_FIELDS.1.NAME" value="Type of transfer"/>
+        <Property key="VTCUSTOM_FIELDS.1.TYPE" value="list"/>
+        <Property key="VTCUSTOM_FIELDS.1.TYPE_OPTIONS" value="Upload,Download"/>
+        <Property key="VTCUSTOM_FIELDS.1.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.2.COMMENT" value="Path on the agent"/>
+        <Property key="VTCUSTOM_FIELDS.2.DEFAULT_VALUE" value=""/>
+        <Property key="VTCUSTOM_FIELDS.2.NAME" value="Local path"/>
+        <Property key="VTCUSTOM_FIELDS.2.TYPE" value="character"/>
+        <Property key="VTCUSTOM_FIELDS.2.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.3.COMMENT" value="Path in the storage (empty by default)"/>
+        <Property key="VTCUSTOM_FIELDS.3.DEFAULT_VALUE" value=""/>
+        <Property key="VTCUSTOM_FIELDS.3.NAME" value="Remote path"/>
+        <Property key="VTCUSTOM_FIELDS.3.TYPE" value="character"/>
+        <Property key="VTCUSTOM_FIELDS.3.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.4.COMMENT" value="Name of the file"/>
+        <Property key="VTCUSTOM_FIELDS.4.DEFAULT_VALUE" value=""/>
+        <Property key="VTCUSTOM_FIELDS.4.NAME" value="Filename"/>
+        <Property key="VTCUSTOM_FIELDS.4.TYPE" value="character"/>
+        <Property key="VTCUSTOM_FIELDS.4.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.5.COMMENT" value="If file is already present"/>
+        <Property key="VTCUSTOM_FIELDS.5.DEFAULT_VALUE" value="Yes"/>
+        <Property key="VTCUSTOM_FIELDS.5.NAME" value="Overwrite"/>
+        <Property key="VTCUSTOM_FIELDS.5.TYPE" value="list"/>
+        <Property key="VTCUSTOM_FIELDS.5.TYPE_OPTIONS" value="Yes,No"/>
+        <Property key="VTCUSTOM_FIELDS.5.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS.6.COMMENT" value=""/>
+        <Property key="VTCUSTOM_FIELDS.6.DEFAULT_VALUE" value="Yes"/>
+        <Property key="VTCUSTOM_FIELDS.6.NAME" value="Error if no file found"/>
+        <Property key="VTCUSTOM_FIELDS.6.TYPE" value="list"/>
+        <Property key="VTCUSTOM_FIELDS.6.TYPE_OPTIONS" value="Yes,No"/>
+        <Property key="VTCUSTOM_FIELDS.6.VISIBLE" value="true"/>
+        <Property key="VTCUSTOM_FIELDS_COUNT" value="7"/>
+        <Property key="VTCUSTOM_ICON_NAME" value="@AZURE_Demo"/>
+      </Properties>
+    </JobApplicationServer>
+  </JobApplicationServers>
+</Domain>

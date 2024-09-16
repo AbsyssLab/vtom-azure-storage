@@ -13,10 +13,10 @@ if  [ "${TOM_RESOURCE_EVAL:-0}" = "1" ] ; then
 	
     if [ $2 = "List" ]; then
         if [ $# -eq 3 ]; then
-            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --filename $3
+            python3 -u /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --filename $3
             stat_fin_job=$?
         elif [ $# -eq 4 ]; then
-            python3 /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --remote_path $3 --filename $4
+            python3 -u /var/lib/absyss/visual-tom/scripts/azure/az-storage/azureBlobStorage.py --container_name $1 --transfer_type $2 --remote_path $3 --filename $4
             stat_fin_job=$?
         else
             echo "Invalid number of parameters"
