@@ -33,8 +33,12 @@ Il est possible de faire appel à des jours de consulting pour l'implémentation
     * `AZURE_TENANT_ID`: ID de l'annuaire
     * `AZURE_CLIENT_SECRET`: Secret de l'application
     * `AZURE_STORAGE_NAME`: Nom du compte de stockage Azure
-  * Créer dans Visual TOM, une connexion "Applicatifs personnalisés" avec la définition suivante :
+  * Créer dans Visual TOM, une connexion "Applicatifs personnalisés" avec la définition suivante ou importer le fichier MyApplication-AzureStorage.xml :
+  ```bash
+  vtimport -x -f MyApplication-AzureStorage.xml
+  ```
     ![Capture Applicatif Personnalisé](screenshots/Azure_Storage_CustomApplication.png?raw=true)
+  * Créer la queue batch sur les Agents et mettre à jour le submitter avec le chemin réel de azureBlobStorage.py
 
 Lorsque l'utilisation est dans un Traitement, 2 actions sont disponibles :
   * Télécharger un fichier depuis le conteneur de stockage Azure vers un répertoire local

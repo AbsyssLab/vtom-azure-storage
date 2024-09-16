@@ -33,9 +33,13 @@ Consultings days can be requested to help for the implementation.
     * `AZURE_TENANT_ID`: Tenant ID of your Azure Active Directory
     * `AZURE_CLIENT_SECRET`: Client secret of your Azure Active Directory application
     * `AZURE_STORAGE_NAME`: Name of the Azure Storage account
-  * Create in Visual TOM a "Custom Application" connection with the following definition:
-    ![Custom application screenshot](screenshots/Azure_Storage_CustomApplication.png?raw=true)
-
+  * Create in Visual TOM a "Custom Application" connection with the following definition or import the file MyApplication-AzureStorage.xml:
+  ```bash
+  vtimport -x -f MyApplication-AzureStorage.xml
+  ```
+  ![Custom application screenshot](screenshots/Azure_Storage_CustomApplication.png?raw=true)
+  * Create the batch queue on the Agents and update the submitter with the real path of azureBlobStorage.py
+  
 When used in a Job, 2 actions are available:
   * Download a file from Azure Storage Container to local folder
   * Upload a file from local folder to Azure Storage Container
