@@ -4,8 +4,6 @@
 
 > ⚠️ **Note:** This integration has been replaced by a native feature in Visual TOM starting from version 7.2.1g (Azure File Share and Azure Blob Storage).
 
-
-
 This integration allows to interact with Azure Blob Storage from Visual TOM Jobs or Resources.
 Several interactions are available:
   * Download
