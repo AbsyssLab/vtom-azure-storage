@@ -2,6 +2,10 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE.md)&nbsp;
 [![fr](https://img.shields.io/badge/lang-fr-yellow.svg)](README-fr.md)  
 
+> ⚠️ **Note:** This integration has been replaced by a native feature in Visual TOM starting from version 7.2.1g (Azure File Share and Azure Blob Storage).
+
+
+
 This integration allows to interact with Azure Blob Storage from Visual TOM Jobs or Resources.
 Several interactions are available:
   * Download

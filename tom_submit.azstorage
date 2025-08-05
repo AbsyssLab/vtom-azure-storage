@@ -99,8 +99,7 @@ if  [ -n ${TOM_JOB_ID:-0} ] ; then
         /var/lib/absyss/visual-tom/abm/submitters/post_exec.ksh "${stat_fin_job}" "Error"
 	fi
 
-	# logs file  management
-    	[ "${TOM_LOG_ACTION}" != "   " ] && ${TOM_ADMIN}/gestlog
+	exit ${stat_fin_job}
 else 
 	echo " "
 	echo "--> Job not submitted by a Visual TOM engine"
