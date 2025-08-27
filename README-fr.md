@@ -2,6 +2,8 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE.md)&nbsp;
 [![fr](https://img.shields.io/badge/lang-en-red.svg)](README.md)
 
+> ⚠️ **Note:** Cette integration a été remplacée par une fonctionnalité native dans Visual TOM à partir de la version 7.2.1g (Azure File Share et Azure Blob Storage).
+
 Cette intégration permet d'interagir avec Azure Blob Storage à partir des Traitement ou Ressources Visual TOM.
 Plusieurs interactions sont disponibles :
     * Téléchargement
